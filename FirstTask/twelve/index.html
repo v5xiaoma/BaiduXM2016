@@ -5,7 +5,196 @@
 	<title>任务十二：学习CSS 3的新特性</title>
 	<meta name="keyword" content="任务十二,CSS3,新特性">
 	<meta name="description" content="任务十二：学习CSS 3的新特性">
-	<link rel="stylesheet" href="./index.css">
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		li{
+			list-style: none;
+			float:left;
+			
+		}
+		a{
+			text-decoration: none;
+			
+		}
+		tr:nth-of-type(n+2){
+			color:red;
+		}
+		tr:nth-of-type(n+5){
+			color:black;
+		}
+		tr:nth-of-type(odd){
+			background:#D2C9CE;
+		}
+		tr:nth-of-type(1){
+			background:#000000;
+			color:#ffffff;
+		}
+		#text{
+			width:100px;
+			transition:3s;
+		}
+		#text:focus{
+			display:block;
+			width:300px;
+		}
+		#shade{
+			width:300px;
+			height:200px;
+			overflow: hidden;
+			position: relative;
+		}
+		#ul1{
+			width:900px;
+			animation:moveOne 9s linear;
+			-moz-animation:moveOne 9s linear;
+			-webkit-animation:moveOne 9s linear;
+			-o-animation:moveOne 9s linear;
+			transition:1s;
+		}
+		#ul1 li:nth-of-type(1){
+			width:300px;
+			height:200px;
+			background:red;
+		}
+		#ul1 li:nth-of-type(2){
+			width:300px;
+			height:200px;
+			background:green;
+		}
+		#ul1 li:nth-of-type(3){
+			width:300px;
+			height:200px;
+			background:blue;
+		}
+		label{
+			width:25px;
+			height:30px;
+			text-align: center;
+			line-height: 30px;
+			background:#000;
+			opacity:0.5;
+			color:#fff;
+			overflow: hidden;
+		}
+		#in1,#in2,#in3{
+			display:none;
+		}
+		#shade label:nth-of-type(1){	
+			position: absolute;
+			bottom:0px;
+			right:60px;
+		}
+		#in1:checked ~ #ul1{
+			margin-left:0px;
+			animation:moveOne 9s linear;
+			-moz-animation:moveOne 9s linear;
+			-webkit-animation:moveOne 9s linear;
+			-o-animation:moveOne 9s linear;
+		}
+
+		#shade label:nth-of-type(2){
+			position: absolute;
+			bottom:0px;
+			right:30px;
+		}
+		#in2:checked ~ #ul1{
+			margin-left:-300px;
+			animation:moveTwo 9s linear;
+			-moz-animation:moveTwo 9s linear;
+			-webkit-animation:moveTwo 9s linear;
+			-o-animation:moveTwo 9s linear;
+		}
+		#shade label:nth-of-type(3){
+			position: absolute;
+			bottom:0px;
+			right:0px;
+		}
+		#in3:checked ~ #ul1{
+			margin-left:-600px;
+			animation:moveThree 9s linear;
+			-moz-animation:moveThree 9s linear;
+			-webkit-animation:moveThree 9s linear;
+			-o-animation:moveThree 9s linear;
+		}
+		/*keyframes */
+		@keyframes moveOne{
+			0%{margin-left:0px;}
+			25%{margin-left:-300px;}
+			75%{margin-left:-600px;}
+			100%{margin-left:0px;}
+		}
+		@-moz-keyframes moveOne{
+			0%{margin-left:0px;}
+			25%{margin-left:-300px;}
+			75%{margin-left:-600px;}
+			100%{margin-left:0px;}
+		}
+		@-webkit-keyframes moveOne{
+			0%{margin-left:0px;}
+			25%{margin-left:-300px;}
+			75%{margin-left:-600px;}
+			100%{margin-left:0px;}
+		}
+		@-o-keyframes moveOne{
+			0%{margin-left:0px;}
+			25%{margin-left:-300px;}
+			75%{margin-left:-600px;}
+			100%{margin-left:0px;}
+		}
+
+		keyframes moveTwo{
+			0%{margin-left:-300px;}
+			25%{margin-left:-600px;}
+			75%{margin-left:0px;}
+			100%{margin-left:-300px;}
+		}
+		@-moz-keyframes moveTwo{
+			0%{margin-left:-300px;}
+			25%{margin-left:-600px;}
+			75%{margin-left:0px;}
+			100%{margin-left:-300px;}
+		}
+		-webkit-keyframes moveTwo{
+			0%{margin-left:-300px;}
+			25%{margin-left:-600px;}
+			75%{margin-left:0px;}
+			100%{margin-left:-300px;}
+		}
+		@-o-keyframes moveTwo{
+			0%{margin-left:-300px;}
+			25%{margin-left:-600px;}
+			75%{margin-left:0px;}
+			100%{margin-left:-300px;}
+		}
+
+		@keyframes moveThree{
+			0%{margin-left:-600px;}
+			25%{margin-left:0px;}
+			75%{margin-left:-300px;}
+			100%{margin-left:-600px;}
+		}
+		@-moz-keyframes moveThree{
+			0%{margin-left:-600px;}
+			25%{margin-left:0px;}
+			75%{margin-left:-300px;}
+			100%{margin-left:-600px;}
+		}
+		@-webkit-keyframes moveThree{
+			0%{margin-left:-600px;}
+			25%{margin-left:0px;}
+			75%{margin-left:-300px;}
+			100%{margin-left:-600px;}
+		}
+		@-o-keyframes moveThree{
+			0%{margin-left:-600px;}
+			25%{margin-left:0px;}
+			75%{margin-left:-300px;}
+			100%{margin-left:-600px;}
+		}
+	</style>
 </head>
 <body>
 	<table>
@@ -59,15 +248,16 @@
 	<input type="text" id="text" name="text">
 	<br><br><br><br>
 	<div id="shade">
+		<input type="radio" name="" id="in1">
+		<label for="in1" id="lab3">1</label>
+		<input type="radio" name="" id="in2">
+		<label for="in2" id="lab3">2</label>		
+		<input type="radio" name="" id="in3">
+		<label for="in3" id="lab3">3</label>
 		<ul id="ul1">
 			<li></li>
 			<li></li>
 			<li></li>
-		</ul>
-		<ul id="ul2">
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
 		</ul>
 	</div>
 </body>
